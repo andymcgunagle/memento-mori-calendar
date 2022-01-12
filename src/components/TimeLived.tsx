@@ -5,7 +5,7 @@ export default function TimeLived() {
   const { state: { weeksLived } } = useContext(DataContext);
 
   return (
-    <div className="w-full flex justify-evenly gap-4">
+    <div className="w-full flex justify-evenly gap-4 text-center">
       <p>
         {weeksLived * 7} days lived
       </p>

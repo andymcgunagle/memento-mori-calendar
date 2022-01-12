@@ -11,7 +11,7 @@ export default function DataContextProvider({ children }: DataContextProviderPro
   const [weeksLived, setWeeksLived] = useState(0);
 
   useEffect(() => {
-    setWeeksLived(getWeeksLived(birthYear, birthMonth, birthDay))
+    setWeeksLived(getWeeksLived(birthYear, birthMonth, birthDay));
   }, [birthYear, birthMonth, birthDay]);
 
   const stateAndActions = {
