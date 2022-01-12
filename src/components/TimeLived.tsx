@@ -1,19 +1,20 @@
-export default function TimeLived({ weeksLived }: TimeLivedProps) {
+import { useContext } from "react";
+import { GlobalContext } from "../contexts/DataContextProvider";
+
+export default function TimeLived() {
+  const { state: { weeksLived } } = useContext(GlobalContext);
+
   return (
     <div className="flex gap-4">
-      <div>
+      <p>
         {weeksLived * 7} days lived
-      </div>
-      <div>
+      </p>
+      <p>
         {weeksLived.toFixed(1)} weeks lived
-      </div>
-      <div>
+      </p>
+      <p>
         {(weeksLived / 52).toFixed(1)} years lived
-      </div>
+      </p>
     </div>
   );
-};
-
-interface TimeLivedProps {
-  weeksLived: number
 };

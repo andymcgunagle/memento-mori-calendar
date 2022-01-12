@@ -1,10 +1,17 @@
 import { months } from "../data/months";
-import { generateDays } from "../functions/generateDays";
-import { generateYears } from "../functions/generateYears";
+import { generateDays } from "../data/generateDays";
+import { generateYears } from "../data/generateYears";
 
 import Select from "./reusables/Select";
+import { useContext } from "react";
+import { GlobalContext } from "../contexts/DataContextProvider";
 
-export default function Birthday({ birthMonth, birthDay, birthYear, setBirthMonth, setBirthDay, setBirthYear }: BirthdayProps) {
+export default function Birthday() {
+  const {
+    state: { birthDay, birthMonth, birthYear },
+    actions: { setBirthDay, setBirthMonth, setBirthYear }
+  } = useContext(GlobalContext);
+
   return (
     <form className="flex gap-4">
       <Select value={birthMonth} onChange={e => setBirthMonth(parseInt(e.target.value))}>
@@ -19,12 +26,3 @@ export default function Birthday({ birthMonth, birthDay, birthYear, setBirthMont
     </form>
   );
 };
-
-interface BirthdayProps {
-  birthMonth: string | number,
-  birthDay: string | number,
-  birthYear: string | number,
-  setBirthMonth: React.Dispatch<React.SetStateAction<number>>,
-  setBirthDay: React.Dispatch<React.SetStateAction<number>>,
-  setBirthYear: React.Dispatch<React.SetStateAction<number>>,
-}
