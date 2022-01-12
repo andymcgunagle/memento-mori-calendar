@@ -1,0 +1,1 @@
+export const generateDays = () => Array.from(Array(31), (_, index) => index + 1);;
