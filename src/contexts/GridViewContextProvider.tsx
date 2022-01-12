@@ -1,21 +1,12 @@
 import { createContext, useState } from "react";
 
-export const GridViewContext = createContext({} as StateAndActions);
+export const GridViewContext = createContext({} as StateAndAction);
 
 export default function GridViewContextProvider({ children }: GridViewContextProviderProps) {
-  const [detailedView, setDetailedView] = useState<boolean>(false);
-
-  const stateAndActions = {
-    state: {
-      detailedView,
-    },
-    actions: {
-      setDetailedView,
-    },
-  };
+  const [detailedView, setDetailedView] = useState(false);
 
   return (
-    <GridViewContext.Provider value={stateAndActions}>
+    <GridViewContext.Provider value={{ detailedView, setDetailedView }}>
       {children}
     </GridViewContext.Provider>
   );
@@ -25,11 +16,7 @@ interface GridViewContextProviderProps {
   children: JSX.Element,
 };
 
-interface StateAndActions {
-  state: {
-    detailedView: boolean,
-  },
-  actions: {
-    setDetailedView: React.Dispatch<React.SetStateAction<boolean>>
-  },
+interface StateAndAction {
+  detailedView: boolean,
+  setDetailedView: React.Dispatch<React.SetStateAction<boolean>>
 };

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { GridViewContext } from "../contexts/GridViewContextProvider";
 
 export default function Box({ lived, number }: BoxProps) {
-  const { state: { detailedView } } = useContext(GridViewContext);
+  const { detailedView } = useContext(GridViewContext);
 
   const baseStyles = ` ${detailedView ? 'h-6 w-6' : 'h-2 w-2'} flex justify-center items-center text-xs border-2 border-gray-900`;
 

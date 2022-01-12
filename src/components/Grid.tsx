@@ -8,7 +8,7 @@ import GridSizeButton from "./reusables/GridSizeButton";
 
 export default function Grid() {
   const { state: { weeksLived } } = useContext(DataContext);
-  const { state: { detailedView } } = useContext(GridViewContext);
+  const { detailedView } = useContext(GridViewContext);
 
   return (
     <div className={`flex flex-wrap justify-center items-center relative ${detailedView ? 'gap-2' : 'gap-[0.25rem]'}`}>

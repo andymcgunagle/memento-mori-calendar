@@ -2,10 +2,7 @@ import { useContext } from "react";
 import { GridViewContext } from "../../contexts/GridViewContextProvider";
 
 export default function GridSizeButton() {
-  const {
-    state: { detailedView },
-    actions: { setDetailedView }
-  } = useContext(GridViewContext);
+  const { detailedView, setDetailedView } = useContext(GridViewContext);
 
   return (
     <button onClick={() => setDetailedView(!detailedView)}>
