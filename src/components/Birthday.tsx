@@ -4,24 +4,24 @@ import { generateYears } from "../data/generateYears";
 
 import Select from "./reusables/Select";
 import { useContext } from "react";
-import { GlobalContext } from "../contexts/DataContextProvider";
+import { DataContext } from "../contexts/DataContextProvider";
 
 export default function Birthday() {
   const {
     state: { birthDay, birthMonth, birthYear },
     actions: { setBirthDay, setBirthMonth, setBirthYear }
-  } = useContext(GlobalContext);
+  } = useContext(DataContext);
 
   return (
     <form className="flex gap-4">
       <Select value={birthMonth} onChange={e => setBirthMonth(parseInt(e.target.value))}>
-        {months.map((month, index) => <option value={index}>{month}</option>)}
+        {months.map((month, index) => <option key={month} value={index}>{month}</option>)}
       </Select>
       <Select value={birthDay} onChange={e => setBirthDay(parseInt(e.target.value))}>
-        {generateDays().map(day => <option value={day}>{day}</option>)}
+        {generateDays().map(day => <option key={day} value={day}>{day}</option>)}
       </Select>
       <Select value={birthYear} onChange={e => setBirthYear(parseInt(e.target.value))}>
-        {generateYears().map(year => <option value={year}>{year}</option>)}
+        {generateYears().map(year => <option key={year} value={year}>{year}</option>)}
       </Select>
     </form>
   );

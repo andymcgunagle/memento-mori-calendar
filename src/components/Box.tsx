@@ -1,14 +1,18 @@
 export default function Box({ lived, number }: BoxProps) {
-  if (number === 0) return <div className="h-4 w-4 bg-blue-500 flex justify-center items-center text-xs"></div>;
+  const baseStyles = `h-6 w-6 flex justify-center items-center text-xs border-2 border-gray-900`;
 
-  if (number !== 0 && number % 52 === 0) return <div className="h-4 w-4 bg-red-500 flex justify-center items-center text-xs">{number / 52}</div>;
+  if (number % 52 === 0) return (
+    <div className={`${lived ? "bg-gray-900 text-gray-50" : null} ${baseStyles}`}>
+      {number / 52}
+    </div>
+  );
 
-  if (lived) return <div className="h-4 w-4 bg-gray-900"></div>;
+  if (lived) return <div className={`bg-gray-900 ${baseStyles}`}></div>;
 
-  return <div className="h-4 w-4 border-2 border-gray-900"></div>;
+  return <div className={`${baseStyles}`}></div>;
 };
 
-type BoxProps = {
+interface BoxProps {
   number: number,
   lived: boolean,
-}
+};

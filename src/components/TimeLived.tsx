@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { GlobalContext } from "../contexts/DataContextProvider";
+import { DataContext } from "../contexts/DataContextProvider";
 
 export default function TimeLived() {
-  const { state: { weeksLived } } = useContext(GlobalContext);
+  const { state: { weeksLived } } = useContext(DataContext);
 
   return (
-    <div className="flex gap-4">
+    <div className="w-full flex justify-evenly gap-4">
       <p>
         {weeksLived * 7} days lived
       </p>

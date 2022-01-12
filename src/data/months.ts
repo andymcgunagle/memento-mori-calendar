@@ -12,4 +12,3 @@ export const months: string[] = [
   "November",
   "December",
 ];
-

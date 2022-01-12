@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 import { getWeeksLived } from "../data/getWeeksLived";
 
-export const GlobalContext = createContext({} as StateAndActions);
+export const DataContext = createContext({} as StateAndActions);
 
 export default function DataContextProvider({ children }: DataContextProviderProps) {
   const [birthDay, setBirthDay] = useState(10);
@@ -29,9 +29,9 @@ export default function DataContextProvider({ children }: DataContextProviderPro
   };
 
   return (
-    <GlobalContext.Provider value={stateAndActions}>
+    <DataContext.Provider value={stateAndActions}>
       {children}
-    </GlobalContext.Provider>
+    </DataContext.Provider>
   );
 };
 
