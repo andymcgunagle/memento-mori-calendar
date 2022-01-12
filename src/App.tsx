@@ -1,4 +1,5 @@
-import DataContextProvider from "./contexts/DataContextProvider";
+import { useContext } from "react";
+import { GridViewContext } from "./contexts/GridViewContextProvider";
 
 import Birthday from "./components/Birthday";
 import Grid from "./components/Grid";
@@ -7,15 +8,15 @@ import TimeLived from "./components/TimeLived";
 import Quote from "./components/Quote";
 
 export default function App() {
+  const { state: { detailedView } } = useContext(GridViewContext);
+
   return (
-    <DataContextProvider>
-      <div className="max-w-[600px] m-auto flex flex-col gap-6 items-center p-6">
-        <Heading>Memento Mori</Heading>
-        <Birthday />
-        <TimeLived />
-        <Grid />
-        <Quote />
-      </div>
-    </DataContextProvider>
+    <div className={`${detailedView ? "max-w-4xl" : "max-w-xl"} m-auto flex flex-col gap-6 xl:gap-8 items-center p-6`}>
+      <Heading>Memento Mori</Heading>
+      <Birthday />
+      <TimeLived />
+      <Grid />
+      <Quote />
+    </div>
   );
 };

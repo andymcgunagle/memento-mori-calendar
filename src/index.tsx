@@ -4,9 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import DataContextProvider from "./contexts/DataContextProvider";
+import GridViewContextProvider from "./contexts/GridViewContextProvider";
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <DataContextProvider>
+      <GridViewContextProvider>
+        <App />
+      </GridViewContextProvider>
+    </DataContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
