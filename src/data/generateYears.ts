@@ -1,5 +1,5 @@
-export function generateYears() {
+export function generateYears(years: number) {
   return Array
-    .from(Array(100), (_, index) => index + (new Date().getFullYear() - 100))
+    .from(Array(years), (_, index) => index + (new Date().getFullYear() - years))
     .reverse();
 };

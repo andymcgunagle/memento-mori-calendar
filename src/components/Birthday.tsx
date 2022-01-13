@@ -15,13 +15,13 @@ export default function Birthday() {
   return (
     <form className="flex gap-4">
       <Select value={birthMonth} onChange={e => setBirthMonth(parseInt(e.target.value))}>
-        {months.map((month, index) => <option key={month} value={index}>{month}</option>)}
+        {months.map((month, index) => <option key={month.name} value={index}>{month.name}</option>)}
       </Select>
       <Select value={birthDay} onChange={e => setBirthDay(parseInt(e.target.value))}>
-        {generateDays().map(day => <option key={day} value={day}>{day}</option>)}
+        {generateDays(months[birthMonth].days).map(day => <option key={day} value={day}>{day}</option>)}
       </Select>
       <Select value={birthYear} onChange={e => setBirthYear(parseInt(e.target.value))}>
-        {generateYears().map(year => <option key={year} value={year}>{year}</option>)}
+        {generateYears(100).map(year => <option key={year} value={year}>{year}</option>)}
       </Select>
     </form>
   );
