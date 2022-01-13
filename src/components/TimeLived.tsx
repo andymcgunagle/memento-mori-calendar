@@ -1,20 +1,18 @@
 import { useContext } from "react";
 import { DataContext } from "../contexts/DataContextProvider";
+import { Durations } from "../data/durations";
 
 export default function TimeLived() {
   const { state: { weeksLived } } = useContext(DataContext);
+  const durations = new Durations(weeksLived);
 
   return (
     <div className="w-full flex justify-evenly gap-4 text-center">
-      <p>
-        {weeksLived * 7} days lived
-      </p>
-      <p>
-        {weeksLived.toFixed(1)} weeks lived
-      </p>
-      <p>
-        {(weeksLived / 52).toFixed(1)} years lived
-      </p>
+      {durations.all.map((duration, index) => (
+        <p key={index}>
+          {duration}
+        </p>
+      ))}
     </div>
   );
 };

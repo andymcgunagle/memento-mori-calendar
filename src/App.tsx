@@ -11,7 +11,7 @@ export default function App() {
   const { detailedView } = useContext(GridViewContext);
 
   return (
-    <div className={`${detailedView ? "max-w-4xl" : "max-w-xl"} m-auto flex flex-col gap-6 xl:gap-8 items-center p-6`}>
+    <div className={`${detailedView ? "max-w-4xl" : "max-w-xl"} m-auto flex flex-col gap-6 items-center p-6`}>
       <Heading>Memento Mori</Heading>
       <Birthday />
       <TimeLived />
